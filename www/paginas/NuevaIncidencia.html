@@ -78,7 +78,7 @@
 // -------- ABRIR CAMARA OARA HACER FOTO --------------------------------------------------------
             function hacerFoto() {
                 iniciaMapa(false);
-                navigator.camera.getPicture(hacerfotoOK, hacerFotoERROR, { quality: 50, destinationType: Camera.DestinationType.DATA_URL });
+                navigator.camera.getPicture(hacerfotoOK, hacerFotoERROR, { quality: 50, destinationType: Camera.DestinationType.CAMERA });
             }
 
             function hacerfotoOK(imageData) {
