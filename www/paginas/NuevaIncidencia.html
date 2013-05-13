@@ -17,7 +17,7 @@
     <script src="../negocio/utilitats.js" type="text/javascript"></script> 
     <script src="../negocio/webService.js" type="text/javascript"></script>
 
-    <script src="cordova-2.5.0.js"></script>
+    <script type="text/javascript" charset="utf-8" src="cordova-2.5.0.js"></script>
 </head>
 <body>
     <div data-role="page" id="pageNuevaIncidencia">
@@ -77,8 +77,14 @@
 
 // -------- ABRIR CAMARA OARA HACER FOTO --------------------------------------------------------
             function hacerFoto() {
-                iniciaMapa(false);
-                navigator.camera.getPicture(hacerfotoOK, hacerFotoERROR, { quality: 50, destinationType: Camera.DestinationType.CAMERA });
+                //iniciaMapa(false);
+                alert('camara!');
+                try {
+                    navigator.camera.getPicture(hacerfotoOK, hacerFotoERROR, { quality: 50, destinationType: Camera.DestinationType.DATA_URL, sourceType: Camera.PictureSourceType.CAMERA, encodingType: Camera.EncodingType.JPEG, saveToPhotoAlbum: false });
+                }
+                catch (e) {
+                    alert('Exception : ' + e.message);
+                }
             }
 
             function hacerfotoOK(imageData) {
