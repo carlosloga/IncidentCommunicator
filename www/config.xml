@@ -6,7 +6,7 @@
 <name>Incident communicator</name>
 <description>Comunicador d'incidències a la via pública</description>
 <author href="https://www.SettingConsultoria.com" email="carlosloga@gmail.com">CLG</author>
-<preference name="phonegap-version" value="2.3.0" />
+<preference name="phonegap-version" value="2.5.0" />
 <plugin name="Notification" value="CDVNotification" />
 <feature name="http://plugins.phonegap.com/ChildBrowser/3.0.4" /> 
 <access origin="*" />
