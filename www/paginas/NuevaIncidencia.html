@@ -69,11 +69,27 @@
             var global_AjaxRESULTADO = null;
             var sDireccion = '';
 
+            var pictureSource;   // picture source
+            var destinationType; // sets the format of returned value
+
+            if (navigator.userAgent.match(/(iPhone|iPod|iPad|Android|BlackBerry)/)) {
+                document.addEventListener("deviceready", onDeviceReady, false);
+            } else {
+                onDeviceReady(); //this is the browser
+            }
+            //document.addEventListener("deviceready", onDeviceReady, false);
+
+            //$("#pageIndex").live('pageinit', function () {  
+            function onDeviceReady() {
+                alert('ready');
+                pictureSource = navigator.camera.PictureSourceType;
+                destinationType = navigator.camera.DestinationType;
+            }
+
             //Al cerrarse el aordeón del Comentari, que se ponga el texto en su cabecera
             $('#collapsibleComentario').bind('collapse', function () {
                 $('#labelComentari').text( $('#textareaComentari').val() );
             });
-
 
 // -------- ABRIR CAMARA OARA HACER FOTO --------------------------------------------------------
             function hacerFoto() {
