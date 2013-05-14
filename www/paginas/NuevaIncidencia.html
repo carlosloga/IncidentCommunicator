@@ -18,7 +18,7 @@
     <script src="../negocio/utilitats.js" type="text/javascript"></script> 
     <script src="../negocio/webService.js" type="text/javascript"></script>
 
-    <script type="text/javascript" charset="utf-8" src="../cordova.js"></script>
+    <!--<script type="text/javascript" charset="utf-8" src="../cordova.js"></script>-->
 </head>
 <body>
     <div data-role="page" id="pageNuevaIncidencia">
@@ -73,7 +73,7 @@
             var pictureSource;   // picture source
             var destinationType; // sets the format of returned value
 
-            if (navigator.userAgent.match(/(iPhone|iPod|iPad|Android|BlackBerry)/)) {
+            if (phoneGapRun()) {
                 document.addEventListener("deviceready", onDeviceReady, false);
             } else {
                 onDeviceReady(); //this is the browser
@@ -82,9 +82,10 @@
 
             //$("#pageIndex").live('pageinit', function () {  
             function onDeviceReady() {
-                alert('ready');
-                pictureSource = navigator.camera.PictureSourceType;
-                destinationType = navigator.camera.DestinationType;
+                if (phoneGapRun()) {
+                    pictureSource = navigator.camera.PictureSourceType;
+                    destinationType = navigator.camera.DestinationType;
+                }
             }
 
             //Al cerrarse el aordeón del Comentari, que se ponga el texto en su cabecera
