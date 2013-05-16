@@ -24,7 +24,7 @@
 
     <script type="text/javascript" charset="utf-8" src="phonegap.js"></script>
 </head>
-<body onLoad="onLoad()">
+<body>
 <!-- Página Principal  -->
     <div data-role="page" id="pageIndex">
         <div data-role="header" data-theme="f">
@@ -124,16 +124,13 @@
         var destinationType; // sets the format of returned value
 
         // funciones COMUNES -----------------------------------------------------------------------
-        function onLoad(){
-            $(document).bind("mobileinit", function(){
+        window.addEventListener('load', function () {            
                 if (phoneGapRun()) {
                     document.addEventListener("deviceready", onDeviceReady, false);
                 } else {
                     onDeviceReady();
                 }
-            });
-        }
-        //, false);
+            }, false);
 
         function onDeviceReady() {
             if (phoneGapRun()) {
