@@ -124,13 +124,13 @@
         var destinationType; // sets the format of returned value
 
         // funciones COMUNES -----------------------------------------------------------------------
-        window.addEventListener('load', function () {            
+        $(document).on('pageinit', function($){            
                 if (phoneGapRun()) {
                     document.addEventListener("deviceready", onDeviceReady, false);
                 } else {
                     onDeviceReady();
                 }
-            }, false);
+        });
 
         function onDeviceReady() {
             if (phoneGapRun()) {
