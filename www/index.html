@@ -124,13 +124,20 @@
         var destinationType; // sets the format of returned value
 
         // funciones COMUNES -----------------------------------------------------------------------
-        $(document).on('pageinit', function($){            
-                if (phoneGapRun()) {
-                    document.addEventListener("deviceready", onDeviceReady, false);
-                } else {
-                    onDeviceReady();
-                }
+        var deviceReadyDeferred = $.Deferred();
+        var jqmReadyDeferred = $.Deferred();
+
+        document.addEventListener("deviceReady", deviceReady, false);
+
+        function deviceReady() {
+            deviceReadyDeferred.resolve();
+        }
+
+        $(document).one("mobileinit", function () {
+            jqmReadyDeferred.resolve();
         });
+
+        $.when(deviceReadyDeferred, jqmReadyDeferred).then(onDeviceReady);
 
         function onDeviceReady() {
             if (phoneGapRun()) {
